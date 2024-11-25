@@ -26,7 +26,7 @@ source:
   sha256: feabb2f4108805b251f44b0561b194a24041d01207b272a3aa42a664e938e5d4  # [win]
 
 build:
-  number: 0
+  number: 1
   skip: true  # [osx or ppc64le]
   skip: true  # [cuda_compiler_version in (None, "None")]
 
