@@ -15,21 +15,22 @@
 {% set cuda_compiler_version = cuda_compiler_version | default("None") %}
 {% set soname = version.split(".")[0] %}
 
+{% set sha = f0b4f0ab9e19579c547e96ce189c6a93731f662898751a88d62e3caa59472367 %}  # [linux64]
+{% set sha = 03a568305989b25be6def7d860b2519577ebef1538c703de0ad086fa2314a1e0 %}  # [aarch64 and arm_variant_type == "sbsa"]
+{% set sha = dac4f1d0c088c22155067b781142dc27ec1d3ced68b99d2180fcd1fcf02fe19e %}  # [aarch64 and arm_variant_type == "tegra"]
+{% set sha = feabb2f4108805b251f44b0561b194a24041d01207b272a3aa42a664e938e5d4 %}  # [win]
+
 package:
   name: libnvjpeg2k-split
   version: {{ version }}
 
 source:
   url: https://developer.download.nvidia.com/compute/nvjpeg2000/redist/libnvjpeg_2k/{{ platform }}/libnvjpeg_2k-{{ platform }}-{{ version }}-archive.{{ extension }}
-  sha256: f0b4f0ab9e19579c547e96ce189c6a93731f662898751a88d62e3caa59472367  # [linux64]
-  sha256: 03a568305989b25be6def7d860b2519577ebef1538c703de0ad086fa2314a1e0  # [aarch64 and arm_variant_type == "sbsa"]
-  sha256: dac4f1d0c088c22155067b781142dc27ec1d3ced68b99d2180fcd1fcf02fe19e  # [aarch64 and arm_variant_type == "tegra"]
-  sha256: feabb2f4108805b251f44b0561b194a24041d01207b272a3aa42a664e938e5d4  # [win]
+  sha256: {{ sha }}
 
 build:
   number: 1
-  skip: true  # [osx or ppc64le]
-  skip: true  # [cuda_compiler_version in (None, "None")]
+  skip: true  # [osx or ppc64le or cuda_compiler_version in (None, "None")]
 
 outputs:
 
@@ -54,7 +55,7 @@ outputs:
       run:
         # Any CUDA within the same major version
         # https://docs.nvidia.com/cuda/nvjpeg2000/userguide.html#prerequisites
-        - {{ pin_compatible("cuda-version", min_pin="x", max_pin="x")  }}
+        - {{ pin_compatible("cuda-version", min_pin="x", max_pin="x") }}
       run_constrained:
         - arm-variant * {{ arm_variant_type }}  # [aarch64]
     test:
