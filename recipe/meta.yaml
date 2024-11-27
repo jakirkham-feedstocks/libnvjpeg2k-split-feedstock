@@ -67,11 +67,9 @@ outputs:
       - lib/libnvjpeg2k.so                                  # [linux]
       # - lib/pkgconfig/nvjpeg*.pc                          # [linux]
       - include/nvjpeg*                                     # [linux]
-      - Library\include                                   # [win]
-      - Library\lib\nvjpeg.lib                            # [win]
+      - Library\include\nvjpeg*                             # [win]
+      - Library\lib\nvjpeg*.lib                              # [win]
     requirements:
-      build:
-        - arm-variant * {{ arm_variant_type }}  # [aarch64]
       host:
         - cuda-version {{ cuda_compiler_version }}
         - {{ pin_subpackage("libnvjpeg2k" ~ version.split(".")[0], exact=True) }}
