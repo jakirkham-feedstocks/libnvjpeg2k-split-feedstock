@@ -8,7 +8,6 @@ for /f "tokens=1 delims=." %%a in ("%cuda_compiler_version%") do (
 
 move lib lib.backup
 move lib.backup\%CUDA_MAJOR% lib
-del lib.backup
 
 if not exist %PREFIX% mkdir %PREFIX%
 
