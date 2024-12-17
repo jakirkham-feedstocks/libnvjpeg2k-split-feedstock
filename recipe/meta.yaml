@@ -21,7 +21,7 @@
 {% set sha = "feabb2f4108805b251f44b0561b194a24041d01207b272a3aa42a664e938e5d4" %}  # [win]
 
 package:
-  name: libnvjpeg2k-split
+  name: nvjpeg2000
   version: {{ version }}
 
 source:
