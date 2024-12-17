@@ -1,15 +1,9 @@
-{% set name = "libnvjpeg2k" %}
 {% set version = "0.8.0.38" %}
 {% set platform = "linux-x86_64" %}  # [linux64]
 {% set platform = "linux-ppc64le" %}  # [ppc64le]
 {% set platform = "linux-sbsa" %}     # [aarch64 and arm_variant_type == "sbsa"]
 {% set platform = "linux-aarch64" %}  # [aarch64 and arm_variant_type == "tegra"]
 {% set platform = "windows-x86_64" %}  # [win]
-{% set target_name = "x86_64-linux" %}  # [linux64]
-{% set target_name = "ppc64le-linux" %}  # [ppc64le]
-{% set target_name = "sbsa-linux" %}  # [aarch64 and arm_variant_type == "sbsa"]
-{% set target_name = "aarch64-linux" %}  # [aarch64 and arm_variant_type == "tegra"]
-{% set target_name = "x64" %}  # [win]
 {% set extension = "tar.xz" %}  # [not win]
 {% set extension = "zip" %}  # [win]
 {% set cuda_compiler_version = cuda_compiler_version | default("None") %}
@@ -21,7 +15,7 @@
 {% set sha = "feabb2f4108805b251f44b0561b194a24041d01207b272a3aa42a664e938e5d4" %}  # [win]
 
 package:
-  name: libnvjpeg2k-split
+  name: nvjpeg2000
   version: {{ version }}
 
 source:
@@ -29,7 +23,7 @@ source:
   sha256: {{ sha }}
 
 build:
-  number: 1
+  number: 2
   skip: true  # [osx or ppc64le or cuda_compiler_version in (None, "None")]
 
 outputs:
