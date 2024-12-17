@@ -3,16 +3,41 @@ About libnvjpeg2k-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/libnvjpeg2k-split-feedstock/blob/main/LICENSE.txt)
 
+
+About libnvjpeg2k
+-----------------
+
 Home: https://docs.nvidia.com/cuda/nvjpeg2000/
 
 Package license: [LicenseRef-NVIDIA-End-User-License-Agreement](https://docs.nvidia.com/cuda/eula/index.html)
 
-Summary: nvJPEG2000 native runtime libraries
+Summary: The nvJPEG2000 development package.
 
 Documentation: https://docs.nvidia.com/cuda/nvjpeg2000/
 
-nvJPEG2000 native runtime libraries
+The nvJPEG2000 library accelerates the decoding and encoding of JPEG2000 images on NVIDIA GPUs. The library is built on the CUDA platform and is supported on Pascal+ GPU architectures.
 
+About libnvjpeg2k0
+------------------
+
+
+
+Package license: LicenseRef-NVIDIA-End-User-License-Agreement
+
+Summary: The nvjpeg2k runtume library.
+
+This is a runtime package only. Developers should install libnvjpeg2k-dev to build with nvjpeg2k.
+
+About libnvjpeg2k-static
+------------------------
+
+
+
+Package license: LicenseRef-NVIDIA-End-User-License-Agreement
+
+Summary: The nvjpeg2k static library.
+
+This is a static-linking package only. Developers should install libnvjpeg2k-dev to link dynamically with nvjpeg2k.
 
 Current build status
 ====================
