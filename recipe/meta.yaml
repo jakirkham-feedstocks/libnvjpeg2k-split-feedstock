@@ -1,4 +1,4 @@
-{% set version = "0.8.0.38" %}
+{% set version = "0.8.1.40" %}
 {% set platform = "linux-x86_64" %}  # [linux64]
 {% set platform = "linux-ppc64le" %}  # [ppc64le]
 {% set platform = "linux-sbsa" %}     # [aarch64 and arm_variant_type == "sbsa"]
@@ -9,10 +9,10 @@
 {% set cuda_compiler_version = cuda_compiler_version | default("None") %}
 {% set soname = version.split(".")[0] %}
 
-{% set sha = "f0b4f0ab9e19579c547e96ce189c6a93731f662898751a88d62e3caa59472367" %}  # [linux64]
-{% set sha = "03a568305989b25be6def7d860b2519577ebef1538c703de0ad086fa2314a1e0" %}  # [aarch64 and arm_variant_type == "sbsa"]
-{% set sha = "dac4f1d0c088c22155067b781142dc27ec1d3ced68b99d2180fcd1fcf02fe19e" %}  # [aarch64 and arm_variant_type == "tegra"]
-{% set sha = "feabb2f4108805b251f44b0561b194a24041d01207b272a3aa42a664e938e5d4" %}  # [win]
+{% set sha = "b028f3718f453a71736c01fb8dcbb0174336ea5d69e52fd12a756d6ff5ce785d" %}  # [linux64]
+{% set sha = "34e02b499e0b0ca1af9b2d69454f979d530762df6a46f736feb4da5cb3824cbd" %}  # [aarch64 and arm_variant_type == "sbsa"]
+{% set sha = "5d0e61f48dc99c3ac464ceef173c071d8fb6ee0e7e6a83b199291307d9970485" %}  # [aarch64 and arm_variant_type == "tegra"]
+{% set sha = "970308dd3837964455600ce68af2fc0ad5e2b4dc415891e8d255ad1191fc248d" %}  # [win]
 
 package:
   name: nvjpeg2000
@@ -23,7 +23,7 @@ source:
   sha256: {{ sha }}
 
 build:
-  number: 2
+  number: 0
   skip: true  # [osx or ppc64le or cuda_compiler_version in (None, "None")]
 
 outputs:
