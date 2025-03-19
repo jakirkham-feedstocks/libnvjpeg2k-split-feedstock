@@ -18,3 +18,5 @@ for i in `ls`; do
     [[ $i == "metadata_conda_debug.yaml" ]] && continue
     cp -rv $i ${PREFIX}
 done
+
+check-glibc "$PREFIX"/lib*/*.so.* "$PREFIX"/bin/* "$PREFIX"/targets/*/lib*/*.so.* "$PREFIX"/targets/*/bin/*
