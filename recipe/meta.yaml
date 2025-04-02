@@ -1,7 +1,7 @@
 {% set version = "0.8.1.40" %}
 {% set platform = "linux-x86_64" %}  # [linux64]
 {% set platform = "linux-ppc64le" %}  # [ppc64le]
-{% set platform = "linux-sbsa" %}     # [aarch64 and arm_variant_type == "sbsa"]
+{% set platform = "linux-sbsa" %}  # [aarch64 and arm_variant_type == "sbsa"]
 {% set platform = "linux-aarch64" %}  # [aarch64 and arm_variant_type == "tegra"]
 {% set platform = "windows-x86_64" %}  # [win]
 {% set extension = "tar.xz" %}  # [not win]
@@ -23,8 +23,12 @@ source:
   sha256: {{ sha }}
 
 build:
-  number: 0
+  number: 1
   skip: true  # [osx or ppc64le or cuda_compiler_version in (None, "None")]
+
+requirements:
+  build:
+    - cf-nvidia-tools 1.*  # [linux]
 
 outputs:
 
@@ -61,8 +65,7 @@ outputs:
       license: LicenseRef-NVIDIA-End-User-License-Agreement
       summary: The nvjpeg2k runtume library.
       description: >-
-        This is a runtime package only. Developers should install libnvjpeg2k-dev to build
-        with nvjpeg2k.
+        This is a runtime package only. Developers should install libnvjpeg2k-dev to build with nvjpeg2k.
 
   - name: libnvjpeg2k-dev
     build:
@@ -92,7 +95,7 @@ outputs:
 
   - name: libnvjpeg2k-static
     build:
-      skip: True  # [not linux]
+      skip: true  # [not linux]
     files:
       - lib/libnvjpeg2k_static.a
     requirements:
@@ -105,8 +108,7 @@ outputs:
       license: LicenseRef-NVIDIA-End-User-License-Agreement
       summary: The nvjpeg2k static library.
       description: >-
-        This is a static-linking package only. Developers should install libnvjpeg2k-dev to
-        link dynamically with nvjpeg2k.
+        This is a static-linking package only. Developers should install libnvjpeg2k-dev to link dynamically with nvjpeg2k.
 
 about:
   home: https://docs.nvidia.com/cuda/nvjpeg2000/
@@ -115,9 +117,7 @@ about:
   license_url: https://docs.nvidia.com/cuda/eula/index.html
   summary: The nvJPEG2000 development package.
   description: >-
-    The nvJPEG2000 library accelerates the decoding and encoding of JPEG2000 images on
-    NVIDIA GPUs. The library is built on the CUDA platform and is supported on Pascal+ GPU
-    architectures.
+    The nvJPEG2000 library accelerates the decoding and encoding of JPEG2000 images on NVIDIA GPUs. The library is built on the CUDA platform and is supported on Pascal+ GPU architectures.
 
   doc_url: https://docs.nvidia.com/cuda/nvjpeg2000/
 
