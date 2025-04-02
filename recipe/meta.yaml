@@ -26,6 +26,10 @@ build:
   number: 1
   skip: true  # [osx or ppc64le or cuda_compiler_version in (None, "None")]
 
+requirements:
+  build:
+    - cf-nvidia-tools 1.*  # [linux]
+
 outputs:
 
   - name: libnvjpeg2k{{ soname }}
