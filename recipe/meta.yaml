@@ -23,7 +23,7 @@ source:
   sha256: {{ sha }}
 
 build:
-  number: 2
+  number: 3
   skip: true  # [osx or ppc64le or cuda_compiler_version in (None, "None")]
 
 requirements:
@@ -36,6 +36,7 @@ outputs:
     build:
       ignore_run_exports:
         - cuda-version
+        - cudatoolkit
     files:
       - lib/libnvjpeg2k.so.*            # [linux]
       - Library\bin\nvjpeg2k*.dll       # [win]
