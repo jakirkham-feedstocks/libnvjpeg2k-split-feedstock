@@ -34,9 +34,10 @@ outputs:
 
   - name: libnvjpeg2k{{ soname }}
     build:
-      ignore_run_exports:
-        - cuda-version
-        - cudatoolkit
+    ignore_run_exports_from:
+      # Ignore `cudatoolkit` dependency in CUDA 11 builds as it is unneeded.
+      # Also ignore `cuda-version` constraint in CUDA 12+ as this supports CUDA Enhanced Compatibility.
+      - {{ compiler("cuda") }}
     files:
       - lib/libnvjpeg2k.so.*            # [linux]
       - Library\bin\nvjpeg2k*.dll       # [win]
