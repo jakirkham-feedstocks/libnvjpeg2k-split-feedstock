@@ -70,8 +70,6 @@ outputs:
       run_exports:
         # FIXME: Pin to patch version until 1.0
         - {{ pin_subpackage("libnvjpeg2k" ~ soname, max_pin="x.x.x") }}
-      ignore_run_exports:
-        - cuda-version
     files:
       - lib/libnvjpeg2k.so                                  # [linux]
       # - lib/pkgconfig/nvjpeg*.pc                          # [linux]
@@ -99,8 +97,6 @@ outputs:
   - name: libnvjpeg2k-static
     build:
       skip: true  # [not linux]
-      ignore_run_exports:
-        - cuda-version
     files:
       - lib/libnvjpeg2k_static.a
     requirements:
